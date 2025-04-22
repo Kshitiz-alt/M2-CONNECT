@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/About" element={<Mainpage />} />
+          <Route path="/" element={<Mainpage />} />
           <Route path="/LatestBollywood" element={<LatestBollywood />} />
           <Route path="/Anime" element={<Anime />} />
           <Route path="/LatestPunjabi" element={<LatestPunjabi />} />
@@ -30,7 +30,7 @@ function App() {
           <Route path="/HaryanviSongs" element={<HaryanviSongs />} />
           <Route path="/NewRingTones" element={<NewRingTones />} />
           <Route path="/NewDJRemix" element={<NewDJRemix />} />
-          <Route path="*" element={<Navigate to="/About" />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -3,6 +3,7 @@ import { PiArrowSquareUpLight } from 'react-icons/pi'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../../styles/Pages.css';
+import SongCard from '../Interfaces/SongCard';
 
 export default function Anime() {
   const [loading, setLoading] = useState(false);
@@ -53,9 +54,9 @@ export default function Anime() {
         <a onClick={() => navigate('/About')} className="btn-flip" data-back="Back" data-front="haryanvi"></a>
         <form className="flex w-[30%] h-[30px] justify-self-center items-center bg-white rounded-[20px] p-4" onSubmit={handleSearch} role="search">
           <input
-            className="outline-none border-none rounded-full h-[30px] w-full"
+            className="outline-none border-none   h-[30px] w-full"
             type="search"
-            placeholder="Search..."
+            placeholder="Search"
             aria-label="Search"
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -71,13 +72,12 @@ export default function Anime() {
       <div className="">
         <div className="flex gap-[5em] overflow-x-scroll">
           {albums?.map((album) => (
-            <div key={album.id} className="flex flex-col justify-center items-center text-white gap-[3em] px-10 h-[90vh]">
-              <img className="ImageGuards" src={album.image[2].url} alt={`Cover for ${album.name}`} />
-              <div>
-                <p className="text-white">{album.artists.all[0].name}</p>
-                <audio controls src={album.downloadUrl[4].url}></audio>
-              </div>
-            </div>
+             <SongCard
+             key={album.id}
+             image={album.image[2].url}
+             artist={album.artists.all[0].name}
+             audio={album.downloadUrl[4].url}
+             />
           ))}
         </div>
       </div>
@@ -85,14 +85,12 @@ export default function Anime() {
       {/* Displaying Playlist Songs */}
       <div className="grid grid-cols-4  gap-[5em]">
         {playlists?.map((playlist) => (
-          <div className="flex flex-col p-[30px]! justify-center items-center" key={playlist.id}>
-            <img className="ImageGuards" src={playlist.image[2].url} alt={playlist.name} />
-            <div>
-              <p className="text-white text-center">{playlist.artists.all[0].name}</p>
-
-              <audio controls src={playlist.downloadUrl[4].url}></audio>
-            </div>
-          </div>
+            <SongCard
+            key={playlist.id}
+            image={playlist.image[2].url}
+            artist={playlist.artists.all[0].name}
+            audio={playlist.downloadUrl[4].url}
+            />
         ))}
       </div>
       <div className="fixed bottom-0 right-0 bg-blur">
