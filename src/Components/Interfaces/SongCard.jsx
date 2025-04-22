@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const SongCard = ({ image, artist, audio }) => {
+const SongCard = ({ image, artist, audio , onSelect , title }) => {
   const [hover, setHover] = useState(false);
 
   return (
@@ -14,6 +14,7 @@ const SongCard = ({ image, artist, audio }) => {
       <div className={` transition-all duration-500 ease-in-out ${hover ? "opacity-100" : "opacity-0"}`}>
 
         <audio controls src={audio} />
+        <input type="checkbox" onChange={(e)=>onSelect?.({title,audio},e.target.checked)} />
       </div>
       
     </div>
