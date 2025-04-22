@@ -85,7 +85,7 @@ export default function Anime() {
 
 
       {/* Displaying Playlist Songs */}
-      <div className="grid grid-cols-4  gap-[5em]">
+      <div className="grid grid-cols-4  gap-[5em]  ml-4 mr-4">
         {playlists?.map((playlist) => (
            <SongCard
            key={playlist.id}

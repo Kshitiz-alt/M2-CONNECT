@@ -69,28 +69,28 @@ export default function Anime() {
 
 
       {/* Displaying Searched Albums */}
-      <div className="">
-        <div className="flex gap-[5em] overflow-x-scroll">
-          {albums?.map((album) => (
-            <SongCard
+
+      <div className="flex gap-[5em] overflow-x-scroll">
+        {albums?.map((album) => (
+          <SongCard
             key={album.id}
             image={album.image[2].url}
             artist={album.artists.all[0].name}
             audio={album.downloadUrl[4].url}
-            />
-          ))}
-        </div>
+          />
+        ))}
       </div>
 
+
       {/* Displaying Playlist Songs */}
-      <div className="grid grid-cols-4  gap-[5em]">
+      <div className="grid grid-cols-4  gap-[5em]  ml-4 mr-4">
         {playlists?.map((playlist) => (
-           <SongCard
-           key={playlist.id}
-           image={playlist.image[2].url}
-           artist={playlist.artists.all[0].name}
-           audio={playlist.downloadUrl[4].url}
-           />
+          <SongCard
+            key={playlist.id}
+            image={playlist.image[2].url}
+            artist={playlist.artists.all[0].name}
+            audio={playlist.downloadUrl[4].url}
+          />
         ))}
       </div>
       <div className="fixed bottom-0 right-0 bg-blur">
