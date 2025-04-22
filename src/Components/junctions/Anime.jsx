@@ -64,7 +64,7 @@ export default function Anime() {
           <button type="submit">Search</button>
         </form>
         <button
-        className="text-white cursor-pointer"
+        className="text-white cursor-pointer hover:text-blue-300"
         onClick={() => Download(selectedSongs)}
         disabled={selectedSongs.length === 0}
 
