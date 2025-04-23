@@ -1,57 +1,61 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
-
+  const [error, setError] = useState('');
+  // this command is used to get the data from local storage
   const handleLogin = (e) => {
     e.preventDefault();
-
-    const isAuthenticated = true;
-
-    if (isAuthenticated) {
-      navigate('/home');
-    } 
+    const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+    const user = existingUsers.find(
+      (user) => user.email === email && user.password === password
+    );
+    if (user) {
+      alert('Login successful!');
+      navigate('/');
+    } else {
+      setError('Invalid email or password');
+    }
   };
-  
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[url('https://i.pinimg.com/originals/03/2c/24/032c24f7093fd3e7be650aa7baec7bec.gif')] bg-no-repeat bg-cover">
-      <form onSubmit={handleLogin} className="backdrop-blur-lg p-6 rounded shadow-md w-full max-w-sm">
-        <h2 className="text-2xl font-bold mb-4 text-center text-white">Login-Page</h2>
-        <div className="mb-4 text-left">
-          <label className="block text-white">Email</label>
+    <div className="flex items-center justify-center h-screen bg-[url('https://i.pinimg.com/originals/03/2c/24/032c24f7093fd3e7be650aa7baec7bec.gif')] bg-no-repeat bg-cover">
+      <form onSubmit={handleLogin} className="bg-white/80 backdrop-blur-[3px] p-6 rounded shadow-md">
+        <h2 className="text-2xl mb-4">Login</h2>
+        {error && <p className="text-red-500">{error}</p>}
+        <div className="mb-4">
+          <label className="block text-gray-700">Email</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3 py-2 border rounded text-white"
+            className="border rounded w-[20em] py-2 px-3"
             required
           />
         </div>
-        <div className="mb-4 text-left">
-          <label className="block text-white">Password</label>
+        <div className="mb-4">
+          <label className="block text-gray-700">Password</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border rounded text-white"
+            className="border rounded w-[20em] py-2 px-3"
             required
           />
         </div>
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded cursor-pointer">
           Login
         </button>
-        <div className="text-center mt-4">
-          <button
-            type="button"
-            className="text-blue-500 hover:underline"
-            onClick={() => navigate('/signup')}
-          >
-            Sign Up
-          </button>
-        </div>
+        <button
+          type="button"
+          className="text-blue-500 hover:underline cursor-pointer ml-4"
+          onClick={() => navigate('/signup')}
+        >
+          Sign Up
+        </button>
       </form>
     </div>
   );

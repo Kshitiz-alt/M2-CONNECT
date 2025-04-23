@@ -53,7 +53,7 @@ export default function Anime() {
     <div className="pages">
       <nav id="back" className="flex items-center gap-[20em]">
 
-        <a onClick={() => navigate('/About')} className="btn-flip" data-back="Back" data-front="top songs"></a>
+        <a onClick={() => navigate('/about')} className="btn-flip" data-back="Back" data-front="top songs"></a>
         <form className="flex w-[30%] h-[30px] justify-self-center items-center bg-white rounded-[20px] p-4" onSubmit={handleSearch} role="search">
           <input
             className="outline-none border-none   h-[30px] w-full"
@@ -100,7 +100,7 @@ export default function Anime() {
 
 
       {/* Displaying Playlist Songs */}
-      <div className="grid grid-cols-4 gap-[5em]  ml-4 mr-4">
+      <div className="grid grid-cols-4 gap-[5em] m-6">
         {playlists?.map((playlist) => (
             <SongCard
             key={playlist.id}

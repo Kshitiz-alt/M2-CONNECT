@@ -16,20 +16,19 @@ function App() {
 
   return (
     <>
-      {/* <Login/> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/Signup" element={<Signup />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/" element={<Mainpage />} />
-          <Route path="/LatestBollywood" element={<LatestBollywood />} />
-          <Route path="/Anime" element={<Anime />} />
-          <Route path="/LatestPunjabi" element={<LatestPunjabi />} />
-          <Route path="/LatestIndiPOP" element={<LatestIndiPOP />} />
-          <Route path="/TopSong2024" element={<TopSongs2024 />} />
-          <Route path="/HaryanviSongs" element={<HaryanviSongs />} />
-          <Route path="/NewRingTones" element={<NewRingTones />} />
-          <Route path="/NewDJRemix" element={<NewDJRemix />} />
+          <Route path="/" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<Mainpage />} />
+          <Route path="/latestBollywood" element={<LatestBollywood />} />
+          <Route path="/anime" element={<Anime />} />
+          <Route path="/latestPunjabi" element={<LatestPunjabi />} />
+          <Route path="/latestIndiPOP" element={<LatestIndiPOP />} />
+          <Route path="/topSong2024" element={<TopSongs2024 />} />
+          <Route path="/haryanviSongs" element={<HaryanviSongs />} />
+          <Route path="/newRingTones" element={<NewRingTones />} />
+          <Route path="/newDJRemix" element={<NewDJRemix />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>

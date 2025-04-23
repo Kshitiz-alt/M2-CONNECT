@@ -22,7 +22,7 @@ router.post("/api/download", async (req, res) => {
           "-"
         );
         archive.append(response.data, { name: `${safeTitle}.mp3` });
-        console.log("response is here??",response)
+        // console.log("response is here??",response)
       } catch (error) {
         console.error(`failed to fetch songs:${song.title}`, error.message);
       }
