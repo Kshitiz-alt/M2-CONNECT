@@ -53,7 +53,7 @@ export default function Anime() {
     <div className="pages">
       <nav id="back" className="flex items-center gap-[20em]">
 
-        <a onClick={() => navigate('/about')} className="btn-flip" data-back="Back" data-front="Dj-remix"></a>
+        <a onClick={() => navigate('/mainpage')} className="btn-flip" data-back="Back" data-front="Dj-remix"></a>
 
         <form className="flex w-[30%] h-[30px] justify-self-center items-center bg-white rounded-[20px] p-4" onSubmit={handleSearch} role="search">
           <input

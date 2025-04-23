@@ -15,7 +15,7 @@ const Login = () => {
     );
     if (user) {
       alert('Login successful!');
-      navigate('/');
+      navigate('/mainpage');
     } else {
       setError('Invalid email or password');
     }
@@ -52,7 +52,7 @@ const Login = () => {
         <button
           type="button"
           className="text-blue-500 hover:underline cursor-pointer ml-4"
-          onClick={() => navigate('/signup')}
+          onClick={() => navigate('/')}
         >
           Sign Up
         </button>
